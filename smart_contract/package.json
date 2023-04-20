@@ -1,0 +1,37 @@
+{
+  "name": "play",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.5",
+    "@openzeppelin/hardhat-upgrades": "^1.22.1",
+    "hardhat-etherscan": ""
+  },
+  "devDependencies": {
+    "@chainlink/contracts": "",
+    "@ethersproject/abi": "",
+    "@ethersproject/providers": "",
+    "@nomicfoundation/hardhat-chai-matchers": "",
+    "@nomicfoundation/hardhat-network-helpers": "",
+    "@nomicfoundation/hardhat-toolbox": "",
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
+    "@nomiclabs/hardhat-etherscan": "",
+    "@typechain/ethers-v5": "",
+    "@typechain/hardhat": "",
+    "chai": "",
+    "dotenv": "^16.0.3",
+    "ethers": "",
+    "hardhat": "",
+    "hardhat-deploy": "",
+    "hardhat-gas-reporter": "",
+    "solidity-coverage": "",
+    "typechain": ""
+  }
+}

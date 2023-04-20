@@ -1,0 +1,3056 @@
+{
+  "version": "3.4",
+  "log": [
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Bet.sol:Bet": {
+        "src": "contracts/Bet.sol:20",
+        "version": {
+          "withMetadata": "0e558a66e97edbc8f97c43f424a865cb70eccc6e02c1791ac598cf0f362167c8",
+          "withoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072",
+          "linkedWithoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context",
+          "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface",
+          "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address,uint64,bytes32,uint32)",
+          "startGame(uint256,uint256)",
+          "placeBet()",
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)",
+          "getMinimumAmount()",
+          "getPlayer(uint256)",
+          "getTimeInterval()",
+          "getNumberOfPlayers()",
+          "ifGameStarted()",
+          "getRecentWinner()",
+          "()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Bet",
+            "src": "contracts/Bet.sol:57"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_vrfCoordinator",
+            "src": "contracts/Bet.sol:49"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_subscriptionId",
+            "src": "contracts/Bet.sol:50"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_gasLane",
+            "src": "contracts/Bet.sol:51"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_callbackGasLimit",
+            "src": "contracts/Bet.sol:52"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            },
+            {
+              "label": "i_minimumAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:23"
+            },
+            {
+              "label": "players",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_array(t_address_payable)dyn_storage",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:25"
+            },
+            {
+              "label": "timeInterval",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:27"
+            },
+            {
+              "label": "startTime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:29"
+            },
+            {
+              "label": "s_recentWinner",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:31"
+            },
+            {
+              "label": "gameStarted",
+              "offset": 20,
+              "slot": "5",
+              "type": "t_bool",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:43"
+            },
+            {
+              "label": "gameId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:46"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_address_payable": {
+              "label": "address payable",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address_payable)dyn_storage": {
+              "label": "address payable[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Bet.sol:Bet": {
+        "src": "contracts/Bet.sol:20",
+        "version": {
+          "withMetadata": "0e558a66e97edbc8f97c43f424a865cb70eccc6e02c1791ac598cf0f362167c8",
+          "withoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072",
+          "linkedWithoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context",
+          "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface",
+          "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address,uint64,bytes32,uint32)",
+          "startGame(uint256,uint256)",
+          "placeBet()",
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)",
+          "getMinimumAmount()",
+          "getPlayer(uint256)",
+          "getTimeInterval()",
+          "getNumberOfPlayers()",
+          "ifGameStarted()",
+          "getRecentWinner()",
+          "()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Bet",
+            "src": "contracts/Bet.sol:57"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_vrfCoordinator",
+            "src": "contracts/Bet.sol:49"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_subscriptionId",
+            "src": "contracts/Bet.sol:50"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_gasLane",
+            "src": "contracts/Bet.sol:51"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_callbackGasLimit",
+            "src": "contracts/Bet.sol:52"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            },
+            {
+              "label": "i_minimumAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:23"
+            },
+            {
+              "label": "players",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_array(t_address_payable)dyn_storage",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:25"
+            },
+            {
+              "label": "timeInterval",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:27"
+            },
+            {
+              "label": "startTime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:29"
+            },
+            {
+              "label": "s_recentWinner",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:31"
+            },
+            {
+              "label": "gameStarted",
+              "offset": 20,
+              "slot": "5",
+              "type": "t_bool",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:43"
+            },
+            {
+              "label": "gameId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:46"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_address_payable": {
+              "label": "address payable",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address_payable)dyn_storage": {
+              "label": "address payable[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Bet.sol:Bet": {
+        "src": "contracts/Bet.sol:20",
+        "version": {
+          "withMetadata": "0e558a66e97edbc8f97c43f424a865cb70eccc6e02c1791ac598cf0f362167c8",
+          "withoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072",
+          "linkedWithoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context",
+          "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface",
+          "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address,uint64,bytes32,uint32)",
+          "startGame(uint256,uint256)",
+          "placeBet()",
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)",
+          "getMinimumAmount()",
+          "getPlayer(uint256)",
+          "getTimeInterval()",
+          "getNumberOfPlayers()",
+          "ifGameStarted()",
+          "getRecentWinner()",
+          "()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Bet",
+            "src": "contracts/Bet.sol:57"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_vrfCoordinator",
+            "src": "contracts/Bet.sol:49"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_subscriptionId",
+            "src": "contracts/Bet.sol:50"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_gasLane",
+            "src": "contracts/Bet.sol:51"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_callbackGasLimit",
+            "src": "contracts/Bet.sol:52"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            },
+            {
+              "label": "i_minimumAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:23"
+            },
+            {
+              "label": "players",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_array(t_address_payable)dyn_storage",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:25"
+            },
+            {
+              "label": "timeInterval",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:27"
+            },
+            {
+              "label": "startTime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:29"
+            },
+            {
+              "label": "s_recentWinner",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:31"
+            },
+            {
+              "label": "gameStarted",
+              "offset": 20,
+              "slot": "5",
+              "type": "t_bool",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:43"
+            },
+            {
+              "label": "gameId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:46"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_address_payable": {
+              "label": "address payable",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address_payable)dyn_storage": {
+              "label": "address payable[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Bet.sol:Bet": {
+        "src": "contracts/Bet.sol:20",
+        "version": {
+          "withMetadata": "0e558a66e97edbc8f97c43f424a865cb70eccc6e02c1791ac598cf0f362167c8",
+          "withoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072",
+          "linkedWithoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context",
+          "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface",
+          "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address,uint64,bytes32,uint32)",
+          "startGame(uint256,uint256)",
+          "placeBet()",
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)",
+          "getMinimumAmount()",
+          "getPlayer(uint256)",
+          "getTimeInterval()",
+          "getNumberOfPlayers()",
+          "ifGameStarted()",
+          "getRecentWinner()",
+          "()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Bet",
+            "src": "contracts/Bet.sol:57"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_vrfCoordinator",
+            "src": "contracts/Bet.sol:49"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_subscriptionId",
+            "src": "contracts/Bet.sol:50"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_gasLane",
+            "src": "contracts/Bet.sol:51"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_callbackGasLimit",
+            "src": "contracts/Bet.sol:52"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            },
+            {
+              "label": "i_minimumAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:23"
+            },
+            {
+              "label": "players",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_array(t_address_payable)dyn_storage",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:25"
+            },
+            {
+              "label": "timeInterval",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:27"
+            },
+            {
+              "label": "startTime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:29"
+            },
+            {
+              "label": "s_recentWinner",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:31"
+            },
+            {
+              "label": "gameStarted",
+              "offset": 20,
+              "slot": "5",
+              "type": "t_bool",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:43"
+            },
+            {
+              "label": "gameId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:46"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_address_payable": {
+              "label": "address payable",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address_payable)dyn_storage": {
+              "label": "address payable[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Bet.sol:Bet": {
+        "src": "contracts/Bet.sol:20",
+        "version": {
+          "withMetadata": "0e558a66e97edbc8f97c43f424a865cb70eccc6e02c1791ac598cf0f362167c8",
+          "withoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072",
+          "linkedWithoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context",
+          "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface",
+          "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address,uint64,bytes32,uint32)",
+          "startGame(uint256,uint256)",
+          "placeBet()",
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)",
+          "getMinimumAmount()",
+          "getPlayer(uint256)",
+          "getTimeInterval()",
+          "getNumberOfPlayers()",
+          "ifGameStarted()",
+          "getRecentWinner()",
+          "()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Bet",
+            "src": "contracts/Bet.sol:57"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_vrfCoordinator",
+            "src": "contracts/Bet.sol:49"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_subscriptionId",
+            "src": "contracts/Bet.sol:50"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_gasLane",
+            "src": "contracts/Bet.sol:51"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_callbackGasLimit",
+            "src": "contracts/Bet.sol:52"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            },
+            {
+              "label": "i_minimumAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:23"
+            },
+            {
+              "label": "players",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_array(t_address_payable)dyn_storage",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:25"
+            },
+            {
+              "label": "timeInterval",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:27"
+            },
+            {
+              "label": "startTime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:29"
+            },
+            {
+              "label": "s_recentWinner",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:31"
+            },
+            {
+              "label": "gameStarted",
+              "offset": 20,
+              "slot": "5",
+              "type": "t_bool",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:43"
+            },
+            {
+              "label": "gameId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:46"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_address_payable": {
+              "label": "address payable",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address_payable)dyn_storage": {
+              "label": "address payable[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Bet.sol:Bet": {
+        "src": "contracts/Bet.sol:20",
+        "version": {
+          "withMetadata": "0e558a66e97edbc8f97c43f424a865cb70eccc6e02c1791ac598cf0f362167c8",
+          "withoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072",
+          "linkedWithoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context",
+          "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface",
+          "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address,uint64,bytes32,uint32)",
+          "startGame(uint256,uint256)",
+          "placeBet()",
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)",
+          "getMinimumAmount()",
+          "getPlayer(uint256)",
+          "getTimeInterval()",
+          "getNumberOfPlayers()",
+          "ifGameStarted()",
+          "getRecentWinner()",
+          "()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Bet",
+            "src": "contracts/Bet.sol:57"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_vrfCoordinator",
+            "src": "contracts/Bet.sol:49"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_subscriptionId",
+            "src": "contracts/Bet.sol:50"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_gasLane",
+            "src": "contracts/Bet.sol:51"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_callbackGasLimit",
+            "src": "contracts/Bet.sol:52"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            },
+            {
+              "label": "i_minimumAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:23"
+            },
+            {
+              "label": "players",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_array(t_address_payable)dyn_storage",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:25"
+            },
+            {
+              "label": "timeInterval",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:27"
+            },
+            {
+              "label": "startTime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:29"
+            },
+            {
+              "label": "s_recentWinner",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:31"
+            },
+            {
+              "label": "gameStarted",
+              "offset": 20,
+              "slot": "5",
+              "type": "t_bool",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:43"
+            },
+            {
+              "label": "gameId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:46"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_address_payable": {
+              "label": "address payable",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address_payable)dyn_storage": {
+              "label": "address payable[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Bet.sol:Bet": {
+        "src": "contracts/Bet.sol:20",
+        "version": {
+          "withMetadata": "0e558a66e97edbc8f97c43f424a865cb70eccc6e02c1791ac598cf0f362167c8",
+          "withoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072",
+          "linkedWithoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context",
+          "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface",
+          "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address,uint64,bytes32,uint32)",
+          "startGame(uint256,uint256)",
+          "placeBet()",
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)",
+          "getMinimumAmount()",
+          "getPlayer(uint256)",
+          "getTimeInterval()",
+          "getNumberOfPlayers()",
+          "ifGameStarted()",
+          "getRecentWinner()",
+          "()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Bet",
+            "src": "contracts/Bet.sol:57"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_vrfCoordinator",
+            "src": "contracts/Bet.sol:49"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_subscriptionId",
+            "src": "contracts/Bet.sol:50"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_gasLane",
+            "src": "contracts/Bet.sol:51"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_callbackGasLimit",
+            "src": "contracts/Bet.sol:52"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            },
+            {
+              "label": "i_minimumAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:23"
+            },
+            {
+              "label": "players",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_array(t_address_payable)dyn_storage",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:25"
+            },
+            {
+              "label": "timeInterval",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:27"
+            },
+            {
+              "label": "startTime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:29"
+            },
+            {
+              "label": "s_recentWinner",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:31"
+            },
+            {
+              "label": "gameStarted",
+              "offset": 20,
+              "slot": "5",
+              "type": "t_bool",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:43"
+            },
+            {
+              "label": "gameId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:46"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_address_payable": {
+              "label": "address payable",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address_payable)dyn_storage": {
+              "label": "address payable[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol:LinkTokenInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "balanceOf(address)",
+          "decimals()",
+          "decreaseApproval(address,uint256)",
+          "increaseApproval(address,uint256)",
+          "name()",
+          "symbol()",
+          "totalSupply()",
+          "transfer(address,uint256)",
+          "transferAndCall(address,uint256,bytes)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:VRFCoordinatorV2Mock": {
+        "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:9",
+        "version": {
+          "withMetadata": "90234f63bad384a24f0248629784c14e2730f81804090b463738a02f08ce86ab",
+          "withoutMetadata": "2e7a7b8dda56fdca248cd61caf27bbde03550e4800433f7479a810c5d45a6a2d",
+          "linkedWithoutMetadata": "2e7a7b8dda56fdca248cd61caf27bbde03550e4800433f7479a810c5d45a6a2d"
+        },
+        "inherit": [
+          "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface"
+        ],
+        "libraries": [],
+        "methods": [
+          "(uint96,uint96)",
+          "consumerIsAdded(uint64,address)",
+          "fulfillRandomWords(uint256,address)",
+          "fulfillRandomWordsWithOverride(uint256,address,uint256[])",
+          "fundSubscription(uint64,uint96)",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "cancelSubscription(uint64,address)",
+          "getRequestConfig()",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "getConfig()",
+          "getFeeConfig()",
+          "getFallbackWeiPerUnitLink()",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFCoordinatorV2Mock",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:55"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "BASE_FEE",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:10"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "GAS_PRICE_LINK",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:11"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "MAX_CONSUMERS",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:12"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "MAX_CONSUMERS",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:12"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "s_nextRequestId",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:39"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "s_nextPreSeed",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:40"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "s_currentSubId",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint64",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:38"
+            },
+            {
+              "label": "s_nextRequestId",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:39"
+            },
+            {
+              "label": "s_nextPreSeed",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:40"
+            },
+            {
+              "label": "s_subscriptions",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint64,t_struct(Subscription)351_storage)",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:45"
+            },
+            {
+              "label": "s_consumers",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_mapping(t_uint64,t_array(t_address)dyn_storage)",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:46"
+            },
+            {
+              "label": "s_requests",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_uint256,t_struct(Request)368_storage)",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:53"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[]",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint256,t_struct(Request)368_storage)": {
+              "label": "mapping(uint256 => struct VRFCoordinatorV2Mock.Request)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint64,t_array(t_address)dyn_storage)": {
+              "label": "mapping(uint64 => address[])",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint64,t_struct(Subscription)351_storage)": {
+              "label": "mapping(uint64 => struct VRFCoordinatorV2Mock.Subscription)",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Request)368_storage": {
+              "label": "struct VRFCoordinatorV2Mock.Request",
+              "members": [
+                {
+                  "label": "subId",
+                  "type": "t_uint64",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "callbackGasLimit",
+                  "type": "t_uint32",
+                  "offset": 8,
+                  "slot": "0"
+                },
+                {
+                  "label": "numWords",
+                  "type": "t_uint32",
+                  "offset": 12,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(Subscription)351_storage": {
+              "label": "struct VRFCoordinatorV2Mock.Subscription",
+              "members": [
+                {
+                  "label": "owner",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "balance",
+                  "type": "t_uint96",
+                  "offset": 20,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint32": {
+              "label": "uint32",
+              "numberOfBytes": "4"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            },
+            "t_uint96": {
+              "label": "uint96",
+              "numberOfBytes": "12"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Bet.sol:Bet": {
+        "src": "contracts/Bet.sol:20",
+        "version": {
+          "withMetadata": "daaf96c575cd64c89571bf040bace491b2ed7baa1757f4b0c1ad7e3f7184f4bd",
+          "withoutMetadata": "110e189e102a279a3a2da070e54c9242284aeec9d0e5baa3fc0a6c746052df37",
+          "linkedWithoutMetadata": "110e189e102a279a3a2da070e54c9242284aeec9d0e5baa3fc0a6c746052df37"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context",
+          "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface",
+          "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address,uint64,bytes32,uint32)",
+          "startGame(uint256,uint256)",
+          "placeBet()",
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)",
+          "getMinimumAmount()",
+          "getPlayer(uint256)",
+          "getTimeInterval()",
+          "getNumberOfPlayers()",
+          "ifGameStarted()",
+          "getRecentWinner()",
+          "()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Bet",
+            "src": "contracts/Bet.sol:57"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_vrfCoordinator",
+            "src": "contracts/Bet.sol:49"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_subscriptionId",
+            "src": "contracts/Bet.sol:50"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_gasLane",
+            "src": "contracts/Bet.sol:51"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_callbackGasLimit",
+            "src": "contracts/Bet.sol:52"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            },
+            {
+              "label": "i_minimumAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:23"
+            },
+            {
+              "label": "players",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_array(t_address_payable)dyn_storage",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:25"
+            },
+            {
+              "label": "timeInterval",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:27"
+            },
+            {
+              "label": "startTime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:29"
+            },
+            {
+              "label": "s_recentWinner",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:31"
+            },
+            {
+              "label": "gameStarted",
+              "offset": 20,
+              "slot": "5",
+              "type": "t_bool",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:43"
+            },
+            {
+              "label": "gameId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:46"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_address_payable": {
+              "label": "address payable",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address_payable)dyn_storage": {
+              "label": "address payable[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2": {
+        "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:97",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "rawFulfillRandomWords(uint256,uint256[])"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFConsumerBaseV2",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:104"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "vrfCoordinator",
+            "src": "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:99"
+          }
+        ],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol:LinkTokenInterface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "allowance(address,address)",
+          "approve(address,uint256)",
+          "balanceOf(address)",
+          "decimals()",
+          "decreaseApproval(address,uint256)",
+          "increaseApproval(address,uint256)",
+          "name()",
+          "symbol()",
+          "totalSupply()",
+          "transfer(address,uint256)",
+          "transferAndCall(address,uint256,bytes)",
+          "transferFrom(address,address,uint256)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface": {
+        "src": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:4",
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getRequestConfig()",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "cancelSubscription(uint64,address)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:VRFCoordinatorV2Mock": {
+        "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:9",
+        "version": {
+          "withMetadata": "3b43bad457b73f87f97496bee85d1501d2d3ff0d7caf77fd5e300fdd7e9acb27",
+          "withoutMetadata": "2e7a7b8dda56fdca248cd61caf27bbde03550e4800433f7479a810c5d45a6a2d",
+          "linkedWithoutMetadata": "2e7a7b8dda56fdca248cd61caf27bbde03550e4800433f7479a810c5d45a6a2d"
+        },
+        "inherit": [
+          "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol:VRFCoordinatorV2Interface"
+        ],
+        "libraries": [],
+        "methods": [
+          "(uint96,uint96)",
+          "consumerIsAdded(uint64,address)",
+          "fulfillRandomWords(uint256,address)",
+          "fulfillRandomWordsWithOverride(uint256,address,uint256[])",
+          "fundSubscription(uint64,uint96)",
+          "requestRandomWords(bytes32,uint64,uint16,uint32,uint32)",
+          "createSubscription()",
+          "getSubscription(uint64)",
+          "cancelSubscription(uint64,address)",
+          "getRequestConfig()",
+          "addConsumer(uint64,address)",
+          "removeConsumer(uint64,address)",
+          "getConfig()",
+          "getFeeConfig()",
+          "getFallbackWeiPerUnitLink()",
+          "requestSubscriptionOwnerTransfer(uint64,address)",
+          "acceptSubscriptionOwnerTransfer(uint64)",
+          "pendingRequestExists(uint64)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "VRFCoordinatorV2Mock",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:55"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "BASE_FEE",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:10"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "GAS_PRICE_LINK",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:11"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "MAX_CONSUMERS",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:12"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "MAX_CONSUMERS",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:12"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "s_nextRequestId",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:39"
+          },
+          {
+            "kind": "state-variable-assignment",
+            "name": "s_nextPreSeed",
+            "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:40"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "s_currentSubId",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_uint64",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:38"
+            },
+            {
+              "label": "s_nextRequestId",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:39"
+            },
+            {
+              "label": "s_nextPreSeed",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_uint256",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:40"
+            },
+            {
+              "label": "s_subscriptions",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_mapping(t_uint64,t_struct(Subscription)370_storage)",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:45"
+            },
+            {
+              "label": "s_consumers",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_mapping(t_uint64,t_array(t_address)dyn_storage)",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:46"
+            },
+            {
+              "label": "s_requests",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_mapping(t_uint256,t_struct(Request)387_storage)",
+              "contract": "VRFCoordinatorV2Mock",
+              "src": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol:53"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[]",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint256,t_struct(Request)387_storage)": {
+              "label": "mapping(uint256 => struct VRFCoordinatorV2Mock.Request)",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint64,t_array(t_address)dyn_storage)": {
+              "label": "mapping(uint64 => address[])",
+              "numberOfBytes": "32"
+            },
+            "t_mapping(t_uint64,t_struct(Subscription)370_storage)": {
+              "label": "mapping(uint64 => struct VRFCoordinatorV2Mock.Subscription)",
+              "numberOfBytes": "32"
+            },
+            "t_struct(Request)387_storage": {
+              "label": "struct VRFCoordinatorV2Mock.Request",
+              "members": [
+                {
+                  "label": "subId",
+                  "type": "t_uint64",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "callbackGasLimit",
+                  "type": "t_uint32",
+                  "offset": 8,
+                  "slot": "0"
+                },
+                {
+                  "label": "numWords",
+                  "type": "t_uint32",
+                  "offset": 12,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_struct(Subscription)370_storage": {
+              "label": "struct VRFCoordinatorV2Mock.Subscription",
+              "members": [
+                {
+                  "label": "owner",
+                  "type": "t_address",
+                  "offset": 0,
+                  "slot": "0"
+                },
+                {
+                  "label": "balance",
+                  "type": "t_uint96",
+                  "offset": 20,
+                  "slot": "0"
+                }
+              ],
+              "numberOfBytes": "32"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            },
+            "t_uint32": {
+              "label": "uint32",
+              "numberOfBytes": "4"
+            },
+            "t_uint64": {
+              "label": "uint64",
+              "numberOfBytes": "8"
+            },
+            "t_uint96": {
+              "label": "uint96",
+              "numberOfBytes": "12"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/access/Ownable.sol:Ownable": {
+        "src": "@openzeppelin/contracts/access/Ownable.sol:20",
+        "inherit": [
+          "@openzeppelin/contracts/utils/Context.sol:Context"
+        ],
+        "libraries": [],
+        "methods": [
+          "owner()",
+          "renounceOwnership()",
+          "transferOwnership(address)"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Ownable",
+            "src": "@openzeppelin/contracts/access/Ownable.sol:28"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      },
+      "@openzeppelin/contracts/utils/Context.sol:Context": {
+        "src": "@openzeppelin/contracts/utils/Context.sol:16",
+        "inherit": [],
+        "libraries": [],
+        "methods": [],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Bet.sol:Bet": {
+        "src": "contracts/Bet.sol:20",
+        "version": {
+          "withMetadata": "95d77e58693e78a4fe1504248f1e4916a5c10a550f064187facfa56b8ef064d5",
+          "withoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072",
+          "linkedWithoutMetadata": "4989260ab663129e6df522a38c9b5d835ae9ace02975157b0d844780e3ce6072"
+        },
+        "inherit": [
+          "@openzeppelin/contracts/access/Ownable.sol:Ownable",
+          "@openzeppelin/contracts/utils/Context.sol:Context",
+          "@chainlink/contracts/src/v0.8/interfaces/AutomationCompatibleInterface.sol:AutomationCompatibleInterface",
+          "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol:VRFConsumerBaseV2"
+        ],
+        "libraries": [],
+        "methods": [
+          "(address,uint64,bytes32,uint32)",
+          "startGame(uint256,uint256)",
+          "placeBet()",
+          "checkUpkeep(bytes)",
+          "performUpkeep(bytes)",
+          "getMinimumAmount()",
+          "getPlayer(uint256)",
+          "getTimeInterval()",
+          "getNumberOfPlayers()",
+          "ifGameStarted()",
+          "getRecentWinner()",
+          "()",
+          "()"
+        ],
+        "linkReferences": [],
+        "errors": [
+          {
+            "kind": "constructor",
+            "contract": "Bet",
+            "src": "contracts/Bet.sol:57"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_vrfCoordinator",
+            "src": "contracts/Bet.sol:49"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_subscriptionId",
+            "src": "contracts/Bet.sol:50"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_gasLane",
+            "src": "contracts/Bet.sol:51"
+          },
+          {
+            "kind": "state-variable-immutable",
+            "name": "i_callbackGasLimit",
+            "src": "contracts/Bet.sol:52"
+          }
+        ],
+        "layout": {
+          "storage": [
+            {
+              "label": "_owner",
+              "offset": 0,
+              "slot": "0",
+              "type": "t_address",
+              "contract": "Ownable",
+              "src": "@openzeppelin/contracts/access/Ownable.sol:21"
+            },
+            {
+              "label": "i_minimumAmount",
+              "offset": 0,
+              "slot": "1",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:23"
+            },
+            {
+              "label": "players",
+              "offset": 0,
+              "slot": "2",
+              "type": "t_array(t_address_payable)dyn_storage",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:25"
+            },
+            {
+              "label": "timeInterval",
+              "offset": 0,
+              "slot": "3",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:27"
+            },
+            {
+              "label": "startTime",
+              "offset": 0,
+              "slot": "4",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:29"
+            },
+            {
+              "label": "s_recentWinner",
+              "offset": 0,
+              "slot": "5",
+              "type": "t_address",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:31"
+            },
+            {
+              "label": "gameStarted",
+              "offset": 20,
+              "slot": "5",
+              "type": "t_bool",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:43"
+            },
+            {
+              "label": "gameId",
+              "offset": 0,
+              "slot": "6",
+              "type": "t_uint256",
+              "contract": "Bet",
+              "src": "contracts/Bet.sol:46"
+            }
+          ],
+          "types": {
+            "t_address": {
+              "label": "address",
+              "numberOfBytes": "20"
+            },
+            "t_address_payable": {
+              "label": "address payable",
+              "numberOfBytes": "20"
+            },
+            "t_array(t_address_payable)dyn_storage": {
+              "label": "address payable[]",
+              "numberOfBytes": "32"
+            },
+            "t_bool": {
+              "label": "bool",
+              "numberOfBytes": "1"
+            },
+            "t_uint256": {
+              "label": "uint256",
+              "numberOfBytes": "32"
+            }
+          },
+          "layoutVersion": "1.2",
+          "flat": true
+        },
+        "solcVersion": "0.8.18"
+      }
+    }
+  ]
+}
